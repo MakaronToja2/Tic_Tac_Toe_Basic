@@ -9,16 +9,16 @@ def Board():
 | {cells[3]} {cells[4]} {cells[5]} |
 | {cells[6]} {cells[7]} {cells[8]} |
 ---------""")
+   #printing first Board - empty
 Board()
-
-
 
 empty_cells = list(empty_cells)
 cells = list(cells)
 check = True
 change = True
-count = 0
+
 while True:
+    #conditions of winning
     wc_1 = empty_cells[0] == empty_cells[3] == empty_cells[6] or empty_cells[0] == empty_cells[1] == empty_cells[2] or empty_cells[0] == empty_cells[4] == empty_cells[8]
     wc_2 = empty_cells[1] == empty_cells[4] == empty_cells[7] or empty_cells[3] == empty_cells[4] == empty_cells[5] or empty_cells[2] == empty_cells[4] == empty_cells[6]
     wc_3 = empty_cells[6] == empty_cells[7] == empty_cells[8] or empty_cells[2] == empty_cells[5] == empty_cells[8]
@@ -59,6 +59,7 @@ while True:
         if x >=4 or y >=4:
             print("You should choose coordinates from 1 to 3!")
             continue
+        #exchanging matrice position to index in cells
         index_ = (((x - 1) * 3) + (y + 2)) - 3
         if cells[index_] == "X" or cells[index_] == "O":
             print("That cell is occupied! Please choose another one!")
